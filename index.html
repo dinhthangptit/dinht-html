@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script>
+    
+
+
+  </script>
+  <head>
+    <title></title>
+    <style>
+      	body{ font: 20px Montserrat, sans-serif; }
+      
+      #dieukhien{ padding-top:50px; height: 1080px; }
+      #thongke{ padding-top:50px; height: 950px; }
+      #slide{ height: 950px; }
+      #me{ height: 950px;  }
+      #address{ height: 950px }
+      #dieukhien-icon{ padding: 60px;font-size: 100px; }
+
+      .slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 50%; 
+        height: 25px; 
+        background: #d3d3d3; 
+        outline: none; 
+        opacity: 0.7; 
+        -webkit-transition: .2s; 
+        transition: opacity .2s;
+      }      
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px; 
+        background: #4CAF50; 
+        cursor: pointer; 
+        border-radius: 50%;
+      }
+ 	  a{
+ 	  	color: white;
+ 	  }
+      
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid" >
+        <div class="navbar-header" >
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#" style="font-weight: bold">DinhT</a>
+        </div>
+        <div>
+          <div class="collapse navbar-collapse" id="myNavbar" style="float: right">
+            <ul class="nav navbar-nav">
+            	<li><a href="#me"><span class="glyphicon glyphicon-user"></a></li>
+              <li><a href="#slide"><span class="glyphicon glyphicon-film"></a></li>
+              <li><a href="#dieukhien"><span class="glyphicon glyphicon-cog"></a></li>
+              <li><a href="#thongke"><span class="glyphicon glyphicon-stats"></a></li>
+              <li><a href="#address"><span class="glyphicon glyphicon-globe"></a></li>
+
+             
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>    
+
+
+
+    <div id="me" class="container-fluid" style="background-color: #1abc9c; color: white; padding-top: 150px">
+    	<center>
+    		<h1>Dinh Xuan Thang</h1>
+    		<br>
+
+    		<img src="v.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+    		<h1>Post & Telecommunications Institute of Technology</h1>
+    		<a href="#address" > <h2>Address: 543 Le Duan street, Son La</h2></a>
+    		
+    		<h2>Phone: 0981945697</h2>
+    	</center>
+    	
+    
+    </div>
+
+    <div id="slide" class="container-fluid">
+	  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	    <!-- Indicators -->
+	    <ol class="carousel-indicators">
+	      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	      <li data-target="#myCarousel" data-slide-to="1"></li>
+	      <li data-target="#myCarousel" data-slide-to="2"></li>
+	    </ol>
+
+	    <!-- Wrapper for slides -->
+	    <div class="carousel-inner">
+	      <div class="item active">
+	        <center><img src="2.jpg" alt="Los Angeles" style="height: 900px"></center>
+	      </div>
+
+	      <div class="item">
+	        <center><img src="3.png" alt="Chicago" style="height: 900px"></center>
+	      </div>
+	    
+	      <div class="item">
+	        <center><img src="1.jpg" alt="New york" style="height: 900px"></center>
+	      </div>
+	    </div>
+
+	    <!-- Left and right controls -->
+	    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	      <span class="glyphicon glyphicon-chevron-left"></span>
+	      <span class="sr-only">Previous</span>
+	    </a>
+	    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+	      <span class="glyphicon glyphicon-chevron-right"></span>
+	      <span class="sr-only">Next</span>
+	    </a>
+	  </div>
+    </div>
+
+    <div id="dieukhien" class="container-fluid" style="background-color: #c6c6c6">
+      
+<!--       <a data-toggle="modal" data-target="#myModal1" style="color: red"><span id="dieukhien-icon" class="fa fa-fire"> </a>
+      <a data-toggle="modal" data-target="#myModal2" style="color: green"><span id="dieukhien-icon" class="fa fa-leaf"> </a>
+      <a data-toggle="modal" data-target="#myModal3" style="color: blue"><span id="dieukhien-icon" class="glyphicon glyphicon-tint"> </a>
+      <a href=""><span id="dieukhien-icon" class="glyphicon glyphicon-cog"> </a>
+      <a href=""><span id="dieukhien-icon" class="glyphicon glyphicon-user"> </s="container">
+       -->
+      <div class="col-lg-3">
+        <center><a data-toggle="collapse" data-target="#den" style="color: orange" ><span id="dieukhien-icon" class="fa fa-lightbulb-o"> </a></center>
+        <div>
+          <div id="den" class="collapse" >
+            <div class="row">
+              <div class="col-lg-2">
+                <span class="fa fa-lightbulb-o" style="font-size: 50px; color:yellow"></span>
+                <p>Den 1</p>
+              </div>
+              <div class="col-lg-2" >
+                <button type="button" class="btn" style="margin: 10px">button</button>
+              </div>
+              <div class="col-lg-8" >
+
+                <input type="range" name="" min="0" max="100" class="slider" style="margin: 14px">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-2">
+                <span class="fa fa-lightbulb-o" style="font-size: 50px; color:yellow"></span>
+                <p>Den 1</p>
+              </div>
+              <div class="col-lg-2" >
+                <button type="button" class="btn" style="margin: 10px">button</button>
+              </div>
+              <div class="col-lg-8" >
+                <input type="range" name="" min="0" max="100" class="slider" style="margin: 14px">
+              </div>
+            </div>
+              
+
+          </div>
+        </div>             
+      </div>
+
+      <div class="col-lg-3" >
+        <center><a data-toggle="collapse" data-target="#nhietdo" style="color: red" ><span id="dieukhien-icon" class="fa fa-fire"> </a></center>
+        <div>
+          <div id="nhietdo" class="collapse" style="margin-left: 30px">
+            <div class="row" >
+              <div class="col-lg-2">
+                <span class="fa fa-lightbulb-o" style="font-size: 50px; color:yellow"></span>
+                <p>Den 1</p>
+              </div>
+              <div class="col-lg-2" >
+                <button type="button" class="btn" style="margin: 10px">button</button>
+              </div>
+              <div class="col-lg-8" >
+
+                <input type="range" name="" min="0" max="100" class="slider" style="margin: 14px">
+              </div>
+            </div>
+              
+
+          </div>
+        </div>
+
+              
+      </div>
+
+      <div class="col-lg-3" style="padding-left: 30px">
+        <center><a data-toggle="collapse" data-target="#khi" style="color: green" ><span id="dieukhien-icon" class="fa fa-leaf"> </a></center>
+        <div>
+          <div id="khi" class="collapse" >
+            <div class="row">
+              
+            </div>
+              
+
+          </div>
+        </div>
+
+              
+      </div>
+      <div class="col-lg-3">
+        <center><a data-toggle="collapse" data-target="#doam" style="color: blue" ><span id="dieukhien-icon" class="glyphicon glyphicon-tint"> </a></center>
+        <div>
+          <div id="doam" class="collapse" >
+            <div class="row">
+              
+            </div>
+
+              
+
+          </div>
+        </div>
+
+              
+      </div>
+    </div>
+
+    <div id="thongke" class="container-fluid" style="background-color: #d8ffdc">
+    	<div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <canvas id="temp-chart" width="400" height="400"></canvas>
+      </div>
+  
+      <div class="col-lg-4">
+        <canvas id="hum-chart" width="400" height="400"></canvas>
+      </div>
+    
+    <div></div>
+    </div>
+
+    
+       <div id="address" class="container-fluid" style="background-color: #1abc9c; color: white; padding-top: 150px">
+    	<center>
+    		<h2>Address: 543 Le Duan street, Son La</h2>
+    		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.559898368114!2d103.96269645100989!3d21.288881685788745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3132f59f20d8eccf%3A0x2e74adcced7bc5f8!2zNTQzIEzDqiBEdeG6qW4sIENoaeG7gW5nIFNpbmgsIFPGoW4gTGEsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1554223170932!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    	</center>
+    	
+    
+    </div>
+
+    
+    
+  
+  </body>
+</html>
+
+<script type="text/javascript">
+  	
+  	var l = new Array(8);
+
+    
+
+	var my_chart = new Chart(document.getElementById("temp-chart"), {
+        type: 'line',
+        data: {
+          labels: ["0 AM", "1 AM", "2 AM", "3AM", "4 AM", "5 AM", "6 AM", "7 AM"],
+          datasets: [{ 
+            data: [21,21.5,22,23,22,24,25,24],
+            label: "Temperature",
+            borderColor: "orange",
+            fill: false
+          }]
+        },
+      options: {
+        title: {
+          display: true,
+          text: "Temperature"
+          },
+        scales: {
+        	yAxes: [{
+        		dispay: true,
+        		scaleLabel:{
+        			display: true,
+        			labelString: "Temperature"
+        		}
+        	}]
+        }
+        }
+    });
+
+    var my_chart = new Chart(document.getElementById("hum-chart"), {
+        type: 'line',
+        data: {
+          labels: ["0 AM", "1 AM", "2 AM", "3AM", "4 AM", "5 AM", "6 AM", "7 AM"],
+          datasets: [{ 
+            data: [87,85.5,85,86,82,84,85,84],
+            label: "Humidity",
+            borderColor: "blue",
+            fill: false
+          }]
+        },
+      options: {
+        title: {
+          display: true,
+          text: "Humidity"
+          },
+        scales: {
+        	yAxes: [{
+        		dispay: true,
+        		scaleLabel:{
+        			display: true,
+        			labelString: "Humidity"
+        		}
+        	}]
+        }
+        }
+    });
+	
+</script>
+
+
+
